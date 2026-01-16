@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.14.2 on win32)" generated="2026-01-15T12:02:10.067960" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\Users\gunpod\Desktop\auto mate bluepi\todo-automation\tests">
+<suite id="s1-s1" name="Todo Basic" source="C:\Users\gunpod\Desktop\auto mate bluepi\todo-automation\tests\todo_basic.robot">
+<test id="s1-s1-t1" name="TC-AUTO-01 Add Complete Delete Task" line="7">
+<kw name="Open Todo App" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-01-15T12:02:10.445024" level="INFO">Opening browser 'chrome' to base url 'https://abhigyank.github.io/To-Do-List/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-15T12:02:10.444718" elapsed="4.877615"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-01-15T12:02:15.322770" elapsed="0.030052"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_TASK}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-15T12:02:15.353263" elapsed="0.038101"/>
+</kw>
+<status status="PASS" start="2026-01-15T12:02:10.442294" elapsed="4.949393"/>
+</kw>
+<kw name="Add Task" owner="keywords">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_TASK}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-15T12:02:15.393135" elapsed="0.064326"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-15T12:02:15.458182" level="INFO">Typing text 'Check' into text field 'css:input.mdl-textfield__input'.</msg>
+<arg>${INPUT_TASK}</arg>
+<arg>${task}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-15T12:02:15.457766" elapsed="0.106704"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-15T12:02:15.565041" level="INFO">Clicking button 'css:#add-item button'.</msg>
+<arg>${BTN_ADD}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-15T12:02:15.564740" elapsed="0.089545"/>
+</kw>
+<arg>Check</arg>
+<status status="PASS" start="2026-01-15T12:02:15.392502" elapsed="0.261953"/>
+</kw>
+<kw name="Verify Task Exists In Incomplete" owner="keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath://ul[@id='incomplete-tasks']//li[.//span[normalize-space()='${task}']]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-01-15T12:02:15.655344" elapsed="0.011481"/>
+</kw>
+<arg>Check</arg>
+<status status="PASS" start="2026-01-15T12:02:15.655016" elapsed="0.011945"/>
+</kw>
+<kw name="Mark Task As Complete By Name" owner="keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-15T12:02:15.668487" level="INFO">${checkbox} = xpath://ul[@id='incomplete-tasks']//li[.//span[normalize-space()='Check']]//input[@type='checkbox' or contains(@class,'mdl-checkbox__input')]</msg>
+<var>${checkbox}</var>
+<arg>xpath://ul[@id='incomplete-tasks']//li[.//span[normalize-space()='${task}']]//input[@type='checkbox' or contains(@class,'mdl-checkbox__input')]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-15T12:02:15.667829" elapsed="0.000701"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-01-15T12:02:15.668915" level="INFO">Clicking element 'xpath://ul[@id='incomplete-tasks']//li[.//span[normalize-space()='Check']]//input[@type='checkbox' or contains(@class,'mdl-checkbox__input')]'.</msg>
+<arg>${checkbox}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-15T12:02:15.668709" elapsed="0.072621"/>
+</kw>
+<arg>Check</arg>
+<status status="PASS" start="2026-01-15T12:02:15.667367" elapsed="0.074196"/>
+</kw>
+<kw name="Verify Task Exists In Completed" owner="keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2026-01-15T12:02:25.962392" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-15T12:02:25.962734" level="FAIL">Element 'xpath://ul[@id='completed-tasks']//li[.//span[normalize-space()='Check']]' did not appear in 10 seconds.</msg>
+<arg>xpath://ul[@id='completed-tasks']//li[.//span[normalize-space()='${task}']]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2026-01-15T12:02:15.743512" elapsed="10.227007">Element 'xpath://ul[@id='completed-tasks']//li[.//span[normalize-space()='Check']]' did not appear in 10 seconds.</status>
+</kw>
+<arg>Check</arg>
+<status status="FAIL" start="2026-01-15T12:02:15.742795" elapsed="10.228086">Element 'xpath://ul[@id='completed-tasks']//li[.//span[normalize-space()='Check']]' did not appear in 10 seconds.</status>
+</kw>
+<kw name="Delete Completed Task By Name" owner="keywords">
+<arg>Check</arg>
+<status status="NOT RUN" start="2026-01-15T12:02:25.971860" elapsed="0.000121"/>
+</kw>
+<kw name="Verify Task Not In Completed" owner="keywords">
+<arg>Check</arg>
+<status status="NOT RUN" start="2026-01-15T12:02:25.972309" elapsed="0.000047"/>
+</kw>
+<status status="FAIL" start="2026-01-15T12:02:10.441513" elapsed="15.531216">Element 'xpath://ul[@id='completed-tasks']//li[.//span[normalize-space()='Check']]' did not appear in 10 seconds.</status>
+</test>
+<kw name="Close App" owner="keywords" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-15T12:02:25.974248" elapsed="2.289179"/>
+</kw>
+<status status="PASS" start="2026-01-15T12:02:25.973952" elapsed="2.289779"/>
+</kw>
+<status status="FAIL" start="2026-01-15T12:02:10.115781" elapsed="18.148064"/>
+</suite>
+<status status="FAIL" start="2026-01-15T12:02:10.069393" elapsed="18.196417"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="0" fail="1" skip="0">Tests</stat>
+<stat name="Todo Basic" id="s1-s1" pass="0" fail="1" skip="0">Tests.Todo Basic</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
