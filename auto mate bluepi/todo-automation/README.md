@@ -1,4 +1,7 @@
 # Todo List Automation - Robot Framework
+## เป้าหมายของโปรเจกต์นี้
+โปรเจกต์นี้ใช้ Robot Framework เพื่อทดสอบเว็บ To-Do List แบบ end-to-end
+สิ่งที่เทส คือ เพิ่มงานใหม่ ทำให้เป็น completed แล้วลบออก และตรวจสอบผลในแต่ละขั้นตอน
 
 ## Tech
 - Robot Framework
